@@ -17,7 +17,7 @@ CREATE TABLE Staff (
     position VARCHAR(20) NOT NULL,
     sex CHAR(1) NOT NULL,
     DOB DATE,
-    salary INT(6),
+    salary DECIMAL(8,2),
     branchNo VARCHAR(4) NOT NULL,
     FOREIGN KEY (branchNo) REFERENCES Branch (branchNo),
     CONSTRAINT chk1 CHECK (sex = 'F' or sex = 'M')
@@ -30,11 +30,11 @@ CREATE TABLE Client (
     lName VARCHAR(20) NOT NULL,
     telNo VARCHAR(15) NOT NULL,
     prefType VARCHAR(10),
-    maxRent INT(6)
+    maxRent DECIMAL(6,2)
 );
 DESC Client;
 
-CREATE TABLE  (
+CREATE TABLE PrivateOwner(
     ownerNo VARCHAR(5) PRIMARY KEY,
     fName VARCHAR(20) NOT NULL,
     lName VARCHAR(20) NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE PropertyForRent (
     postcode VARCHAR(10) NOT NULL,
     type VARCHAR(10),
     rooms INT,
-    rent INT(6),
+    rent DECIMAL(8,2),
     ownerNo VARCHAR(5) NOT NULL,
     staffNo VARCHAR(5),
     branchNo VARCHAR(4),
@@ -283,8 +283,7 @@ WHERE staffNo IN (SELECT staffNo FROM Staff
                                     WHERE street = '163 Main St')
 );
 
-#27 Find all staff whose salary is larger than the salary of at least one member of staff at branch
-B003.
+#27 Find all staff whose salary is larger than the salary of at least one member of staff at branch B003.
 SELECT * 
 FROM Staff
 WHERE salary > (
@@ -384,9 +383,9 @@ SELECT * FROM Staff WHERE position = "Manager" ORDER BY salary;
 
 #38.Promote David Ford (staffNo 'SG14') to Manager and change his salary to £18,000
 UPDATE Staff
-SET salary=18000,position = "Supervisor"
+SET salary=18000,position = "Manager"
 WHERE staffNo = "SG14";
-SELECT * FROM Staff ;
+SELECT * FROM Staff WHERE position = "Manager";
 
 #39 Delete all viewings that relate to property PG4
 DELETE FROM viewing
@@ -397,3 +396,4 @@ SELECT * FROM viewing;
 #40.Delete all rows from the Viewing table
 DELETE FROM viewing
 WHERE propertyNo IS NOT NULL;
+SELECT * FROM viewing;
