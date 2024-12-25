@@ -1,4 +1,3 @@
-
 # MY-SQL-Queries
 
 This repository contains all my MySQL queries completed during the PCC-CS592 lab sessions.
@@ -35,8 +34,4 @@ This project is licensed under the Apache License 2.0. See the [LICENSE](LICENSE
 
 - **RockingSNP**: [GitHub Profile](https://github.com/RockingSNP)
 
-Feel free to explore, use, and modify the queries as needed. Contributions and suggestions are welcome!
-
-For more tips on creating effective GitHub READMEs, you might find the following video helpful:
-
-[How To Write a USEFUL README On Github](https://www.youtube.com/watch?v=rCt9DatF63I&utm_source=chatgpt.com)
+🙏Thank You :)
